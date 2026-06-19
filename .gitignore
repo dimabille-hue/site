@@ -1,0 +1,38 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Runtime/dependency directories
+node_modules/
+vendor/
+.env
+.env.*
+!.env.example
+
+# Build/cache outputs
+dist/
+build/
+.cache/
+.tmp/
+coverage/
+
+# Local archives and dumps can be uploaded intentionally when needed.
+# Do not ignore *.zip or *.sql globally for this migration workspace.
+
+# Local extraction of the legacy archive for audit only; contains production config.
+legacy_audit/
+
+# Laravel runtime
+/public/build/
+/public/hot
+/storage/*.key
+/storage/framework/cache/data/
+/storage/framework/testing/
+/storage/logs/*.log
+/database/database.sqlite
+
+# PHP tooling
+.phpunit.cache/
+.phpunit.result.cache
