@@ -20,3 +20,6 @@ coverage/
 
 # Local archives and dumps can be uploaded intentionally when needed.
 # Do not ignore *.zip or *.sql globally for this migration workspace.
+
+# Local extraction of the legacy archive for audit only; contains production config.
+legacy_audit/
