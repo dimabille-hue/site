@@ -4,19 +4,14 @@ This repository is prepared as a clean workspace for migrating the legacy site f
 
 ## What to upload
 
-Please add the legacy project files to this repository, preferably using this structure:
+The legacy project inputs are stored at the repository root:
 
 ```text
-legacy/
-  site.zip              # archive with the current site files
-  database.sql          # database dump, or a compressed .sql.gz dump
+tomskagroinvest.zip         # archive with the current site files
+u2818473_agroinvest.sql    # MySQL database dump
 ```
 
-If the archive is already unpacked, place it under:
-
-```text
-legacy/source/
-```
+The site archive currently expands into `tomskagroinvest.ru/` and contains the custom CMS source, public assets, and templates.
 
 ## Recommended safety checks before upload
 
