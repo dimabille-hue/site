@@ -29,7 +29,8 @@ The rebuild is intentionally simple and conventional:
 - Initial public route and Blade layout are present.
 - Initial domain models are present for pages, menus, menu items, blocks, redirects, and settings.
 - Initial migrations are present for the same core entities.
-- `legacy:import --dry-run` is registered as a placeholder command for the upcoming import pipeline.
+- `legacy:import --dry-run` reads the legacy SQL dump and reports table/row counts as the first import pipeline step.
+- `App\Support\LegacySqlDump` provides a framework-independent parser for legacy MySQL `CREATE TABLE` and `INSERT` data.
 
 ## Local setup
 
