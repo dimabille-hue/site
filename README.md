@@ -1,8 +1,8 @@
-# Site migration workspace
+# TomskAgroInvest modern site rebuild
 
-This repository is prepared as a clean workspace for migrating the legacy site from a custom CMS to a modern stack.
+This repository contains the modernization workspace for replacing the legacy custom PHP CMS used by `tomskagroinvest.ru`.
 
-## What to upload
+## Legacy inputs
 
 The legacy project inputs are stored at the repository root:
 
@@ -11,26 +11,44 @@ tomskagroinvest.zip         # archive with the current site files
 u2818473_agroinvest.sql    # MySQL database dump
 ```
 
-The site archive currently expands into `tomskagroinvest.ru/` and contains the custom CMS source, public assets, and templates.
+The archive expands into `tomskagroinvest.ru/`. Do not commit local extractions of the archive: the extracted source contains production configuration values and is ignored as `legacy_audit/`.
 
-## Recommended safety checks before upload
+## Target stack
 
-Before committing the legacy archive or dump, remove or replace sensitive values when possible:
+The rebuild is intentionally simple and conventional:
 
-- database passwords;
-- API tokens;
-- SMTP credentials;
-- private keys;
-- production user personal data that is not required for migration.
+- Laravel application skeleton;
+- Blade templates for the public site;
+- Filament Admin planned for CMS management;
+- MySQL as the first database target for easier legacy import;
+- Laravel migrations and artisan commands for data migration.
 
-## Next migration steps
+## Current implementation status
 
-After the archive and dump are available in this repository, the migration work can proceed with:
+- Base Laravel project files are present.
+- Initial public route and Blade layout are present.
+- Initial domain models are present for pages, menus, menu items, blocks, redirects, and settings.
+- Initial migrations are present for the same core entities.
+- `legacy:import --dry-run` is registered as a placeholder command for the upcoming import pipeline.
 
-1. auditing the legacy CMS structure;
-2. documenting existing page types, modules, and database tables;
-3. selecting the replacement stack;
-4. designing the new schema and application architecture;
-5. implementing the rebuilt site;
-6. writing data migration scripts;
-7. testing and preparing deployment instructions.
+## Local setup
+
+Install PHP dependencies when network access is available:
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
+
+Run tests:
+
+```bash
+php artisan test
+```
+
+## Migration notes
+
+See [`docs/legacy-audit.md`](docs/legacy-audit.md) for the legacy CMS audit, database overview, risks, and migration model.

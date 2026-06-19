@@ -23,3 +23,16 @@ coverage/
 
 # Local extraction of the legacy archive for audit only; contains production config.
 legacy_audit/
+
+# Laravel runtime
+/public/build/
+/public/hot
+/storage/*.key
+/storage/framework/cache/data/
+/storage/framework/testing/
+/storage/logs/*.log
+/database/database.sqlite
+
+# PHP tooling
+.phpunit.cache/
+.phpunit.result.cache
